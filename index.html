@@ -4,21 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Branching and Merging</title>
-        <!--CSS Styling Sheets -->
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./style1.css">
-        <!-- Boxicons CSS -->
+    
+    <!-- Tailwind CSS CDN and Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Boxicons CSS (Kept from your original structure) -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
- 
 </head>
 
 <body>
-    <h1>Testing Branching Multiple Branches and Merging:</h1>
-    <i class='icon bx bx-brightness'></i>
-    
-</body>
-<!-- jQuery CDN Link -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Main Content Card from the Canvas -->
+    <div class="min-h-screen bg-gray-100 p-4 sm:p-8 flex items-start justify-center font-sans">
+        <!-- Card Container -->
+        <div class="w-full max-w-4xl bg-white shadow-xl rounded-xl overflow-hidden transform transition duration-500 hover:shadow-2xl">
+            
+            <!-- Header Section -->
+            <div class="bg-indigo-600 p-6 sm:p-8">
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight flex items-center">
+                    <svg class="w-8 h-8 mr-3 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                    Key Learnings: Git Branching & Collaboration Simulation
+                </h1>
+            </div>
 
-<script src="script.js"></script>
+            <!-- Body Content -->
+            <div class="p-6 sm:p-8 space-y-6">
+
+                <!-- Overview Paragraph -->
+                <p class="text-gray-700 leading-relaxed border-l-4 border-indigo-400 pl-4 py-2 bg-indigo-50/50 rounded-lg">
+                    While implementing the Dark Mode feature, I focused on simulating a **professional team workflow** using Git. This involved learning and applying core **version control** concepts directly from my local VS Code environment to the remote repository.
+                </p>
+
+                <!-- Core Achievements Section -->
+                <h2 class="text-xl font-semibold text-gray-800 border-b pb-2 mb-4">
+                    Core Achievements
+                </h2>
+                
+                <ul class="space-y-4">
+                    <!-- Achievement 1 -->
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 text-green-500 mt-1 mr-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </span>
+                        <p class="text-gray-600">
+                            <strong class="text-indigo-600">Branching Workflow:</strong> I practiced creating new feature branches (`git checkout -b feature/dark-mode`), committing changes locally, and pushing those branches to the remote repository.
+                        </p>
+                    </li>
+                    
+                    <!-- Achievement 2 -->
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 text-green-500 mt-1 mr-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </span>
+                        <p class="text-gray-600">
+                            <strong class="text-indigo-600">Version Management:</strong> I learned why it is crucial to avoid direct pushes to the <code class="bg-gray-200 text-red-700 px-1 rounded text-sm">main</code> branch, simulating how a team uses branches to isolate new, unstable code and prevent disruptions to the live version.
+                        </p>
+                    </li>
+
+                    <!-- Achievement 3 -->
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 text-green-500 mt-1 mr-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </span>
+                        <p class="text-gray-600">
+                            <strong class="text-indigo-600">Merge Request Simulation:</strong> I understood the step-by-step process of preparing a branch for merging, which requires a clean commit history and passing checks (simulating CI/CD and code review) before the final commit is merged into <code class="bg-gray-200 text-red-700 px-1 rounded text-sm">main</code>.
+                        </p>
+                    </li>
+                </ul>
+
+                <!-- Conclusion -->
+                <p class="pt-4 text-lg font-medium text-gray-700 border-t mt-6">
+                    This exercise provided a strong foundation in **collaborative development principles** and the operational necessity of using a branching strategy for reliable project delivery.
+                </p>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="bg-gray-50 p-4 text-center text-sm text-gray-500">
+                Showcasing DevOps and Version Control Proficiency
+            </div>
+
+        </div>
+    </div>
+    
+    <!-- Scripts (Kept from your original structure) -->
+    <!-- jQuery CDN Link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
