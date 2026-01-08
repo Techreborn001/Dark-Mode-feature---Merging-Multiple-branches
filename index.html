@@ -9,6 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class', // Enable class-based dark mode
             theme: {
                 extend: {
                     fontFamily: {
@@ -19,18 +20,35 @@
         }
     </script>
     
-    <!-- Boxicons CSS (Kept from your original structure) -->
+    <!-- Boxicons CSS -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <style>
+        /* Smooth transitions for theme switching */
+        .theme-transition {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+    </style>
 </head>
 
-<body>
-    <!-- Main Content Card from the Canvas -->
-    <div class="min-h-screen bg-gray-100 p-4 sm:p-8 flex items-start justify-center font-sans">
+<body class="theme-transition bg-gray-100 dark:bg-gray-900 min-h-screen">
+    <!-- Dark Mode Toggle Button -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="theme-toggle" class="p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 focus:outline-none hover:scale-110 transition-transform">
+            <!-- Sun Icon (Visible in Dark Mode) -->
+            <svg id="theme-toggle-light-icon" class="hidden w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            <!-- Moon Icon (Visible in Light Mode) -->
+            <svg id="theme-toggle-dark-icon" class="w-6 h-6 text-indigo-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+        </button>
+    </div>
+
+    <!-- Main Content Card -->
+    <div class="p-4 sm:p-8 flex items-start justify-center">
         <!-- Card Container -->
-        <div class="w-full max-w-4xl bg-white shadow-xl rounded-xl overflow-hidden transform transition duration-500 hover:shadow-2xl">
+        <div class="w-full max-w-4xl bg-white dark:bg-gray-800 shadow-xl rounded-xl overflow-hidden transform transition duration-500 hover:shadow-2xl border border-transparent dark:border-gray-700">
             
             <!-- Header Section -->
-            <div class="bg-indigo-600 p-6 sm:p-8">
+            <div class="bg-indigo-600 dark:bg-indigo-900 p-6 sm:p-8">
                 <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight flex items-center">
                     <svg class="w-8 h-8 mr-3 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
                     Key Learnings: Git Branching & Collaboration Simulation
@@ -41,12 +59,12 @@
             <div class="p-6 sm:p-8 space-y-6">
 
                 <!-- Overview Paragraph -->
-                <p class="text-gray-700 leading-relaxed border-l-4 border-indigo-400 pl-4 py-2 bg-indigo-50/50 rounded-lg">
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed border-l-4 border-indigo-400 dark:border-indigo-500 pl-4 py-2 bg-indigo-50/50 dark:bg-indigo-950/30 rounded-lg">
                     While implementing the Dark Mode feature, I focused on simulating a **professional team workflow** using Git. This involved learning and applying core **version control** concepts directly from my local VS Code environment to the remote repository.
                 </p>
 
                 <!-- Core Achievements Section -->
-                <h2 class="text-xl font-semibold text-gray-800 border-b pb-2 mb-4">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-white border-b dark:border-gray-700 pb-2 mb-4">
                     Core Achievements
                 </h2>
                 
@@ -56,8 +74,8 @@
                         <span class="flex-shrink-0 text-green-500 mt-1 mr-3">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </span>
-                        <p class="text-gray-600">
-                            <strong class="text-indigo-600">Branching Workflow:</strong> I practiced creating new feature branches (`git checkout -b feature/dark-mode`), committing changes locally, and pushing those branches to the remote repository.
+                        <p class="text-gray-600 dark:text-gray-400">
+                            <strong class="text-indigo-600 dark:text-indigo-400">Branching Workflow:</strong> I practiced creating new feature branches (<code class="bg-gray-200 dark:bg-gray-700 text-red-700 dark:text-red-400 px-1 rounded text-sm">git checkout -b feature/dark-mode</code>), committing changes locally, and pushing those branches to the remote repository.
                         </p>
                     </li>
                     
@@ -66,8 +84,8 @@
                         <span class="flex-shrink-0 text-green-500 mt-1 mr-3">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </span>
-                        <p class="text-gray-600">
-                            <strong class="text-indigo-600">Version Management:</strong> I learned why it is crucial to avoid direct pushes to the <code class="bg-gray-200 text-red-700 px-1 rounded text-sm">main</code> branch, simulating how a team uses branches to isolate new, unstable code and prevent disruptions to the live version.
+                        <p class="text-gray-600 dark:text-gray-400">
+                            <strong class="text-indigo-600 dark:text-indigo-400">Version Management:</strong> I learned why it is crucial to avoid direct pushes to the <code class="bg-gray-200 dark:bg-gray-700 text-red-700 dark:text-red-400 px-1 rounded text-sm">main</code> branch, simulating how a team uses branches to isolate new, unstable code.
                         </p>
                     </li>
 
@@ -76,30 +94,70 @@
                         <span class="flex-shrink-0 text-green-500 mt-1 mr-3">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </span>
-                        <p class="text-gray-600">
-                            <strong class="text-indigo-600">Merge Request Simulation:</strong> I understood the step-by-step process of preparing a branch for merging, which requires a clean commit history and passing checks (simulating CI/CD and code review) before the final commit is merged into <code class="bg-gray-200 text-red-700 px-1 rounded text-sm">main</code>.
+                        <p class="text-gray-600 dark:text-gray-400">
+                            <strong class="text-indigo-600 dark:text-indigo-400">Merge Request Simulation:</strong> I understood the process of preparing a branch for merging, which requires a clean commit history and passing checks before the final merge into <code class="bg-gray-200 dark:bg-gray-700 text-red-700 dark:text-red-400 px-1 rounded text-sm">main</code>.
                         </p>
                     </li>
                 </ul>
 
                 <!-- Conclusion -->
-                <p class="pt-4 text-lg font-medium text-gray-700 border-t mt-6">
-                    This exercise provided a strong foundation in **collaborative development principles** and the operational necessity of using a branching strategy for reliable project delivery.
+                <p class="pt-4 text-lg font-medium text-gray-700 dark:text-gray-300 border-t dark:border-gray-700 mt-6">
+                    This exercise provided a strong foundation in **collaborative development principles** and the operational necessity of using a branching strategy.
                 </p>
 
             </div>
 
             <!-- Footer -->
-            <div class="bg-gray-50 p-4 text-center text-sm text-gray-500">
+            <div class="bg-gray-50 dark:bg-gray-900/50 p-4 text-center text-sm text-gray-500 dark:text-gray-400">
                 Showcasing DevOps and Version Control Proficiency
             </div>
 
         </div>
     </div>
     
-    <!-- Scripts (Kept from your original structure) -->
-    <!-- jQuery CDN Link -->
+    <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        // Check for saved user preference, first in localStorage, then in system settings
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('theme-toggle-light-icon').classList.remove('hidden');
+            document.getElementById('theme-toggle-dark-icon').classList.add('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            document.getElementById('theme-toggle-light-icon').classList.add('hidden');
+            document.getElementById('theme-toggle-dark-icon').classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        themeToggleBtn.addEventListener('click', function() {
+            // Toggle icons inside button
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            // If set via local storage previously
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            // If NOT set via local storage previously
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
